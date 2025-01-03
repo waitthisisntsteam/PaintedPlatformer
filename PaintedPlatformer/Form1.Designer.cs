@@ -61,7 +61,15 @@
             label14 = new Label();
             CornerFourCheck = new CheckBox();
             label15 = new Label();
-            ObjectCalibrationButton = new Button();
+            InRangeCalibrationButton = new Button();
+            ErosionBar = new TrackBar();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            StepFourCheck = new CheckBox();
+            ErosionButton = new Button();
+            StartGameButton = new Button();
+            label19 = new Label();
             ((System.ComponentModel.ISupportInitialize)VideoCapture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)WarpedCapture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MinB).BeginInit();
@@ -70,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)MaxV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MaxS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MaxH).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ErosionBar).BeginInit();
             SuspendLayout();
             // 
             // VideoCapture
@@ -93,7 +102,7 @@
             // 
             // MinB
             // 
-            MinB.Location = new Point(557, 205);
+            MinB.Location = new Point(561, 280);
             MinB.Maximum = 255;
             MinB.Name = "MinB";
             MinB.Size = new Size(104, 45);
@@ -101,9 +110,9 @@
             // 
             // TakePhotoButton
             // 
-            TakePhotoButton.Location = new Point(562, 32);
+            TakePhotoButton.Location = new Point(566, 107);
             TakePhotoButton.Name = "TakePhotoButton";
-            TakePhotoButton.Size = new Size(85, 23);
+            TakePhotoButton.Size = new Size(85, 32);
             TakePhotoButton.TabIndex = 10;
             TakePhotoButton.Text = "Take Photo";
             TakePhotoButton.UseVisualStyleBackColor = true;
@@ -111,9 +120,9 @@
             // 
             // RetryPhotoButton
             // 
-            RetryPhotoButton.Location = new Point(653, 32);
+            RetryPhotoButton.Location = new Point(657, 107);
             RetryPhotoButton.Name = "RetryPhotoButton";
-            RetryPhotoButton.Size = new Size(85, 23);
+            RetryPhotoButton.Size = new Size(85, 32);
             RetryPhotoButton.TabIndex = 11;
             RetryPhotoButton.Text = "Retry Photo";
             RetryPhotoButton.UseVisualStyleBackColor = true;
@@ -123,7 +132,7 @@
             // 
             StepOneCheck.AutoSize = true;
             StepOneCheck.Enabled = false;
-            StepOneCheck.Location = new Point(826, 9);
+            StepOneCheck.Location = new Point(830, 84);
             StepOneCheck.Name = "StepOneCheck";
             StepOneCheck.Size = new Size(15, 14);
             StepOneCheck.TabIndex = 12;
@@ -131,7 +140,7 @@
             // 
             // MinG
             // 
-            MinG.Location = new Point(557, 256);
+            MinG.Location = new Point(561, 331);
             MinG.Maximum = 255;
             MinG.Name = "MinG";
             MinG.Size = new Size(104, 45);
@@ -140,7 +149,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(546, 9);
+            label1.Location = new Point(550, 84);
             label1.Name = "label1";
             label1.Size = new Size(58, 15);
             label1.TabIndex = 14;
@@ -149,7 +158,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(567, 187);
+            label2.Location = new Point(571, 262);
             label2.Name = "label2";
             label2.Size = new Size(41, 15);
             label2.TabIndex = 15;
@@ -158,7 +167,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(567, 235);
+            label3.Location = new Point(571, 310);
             label3.Name = "label3";
             label3.Size = new Size(42, 15);
             label3.TabIndex = 16;
@@ -166,7 +175,7 @@
             // 
             // MinR
             // 
-            MinR.Location = new Point(557, 307);
+            MinR.Location = new Point(561, 382);
             MinR.Maximum = 255;
             MinR.Name = "MinR";
             MinR.Size = new Size(104, 45);
@@ -175,7 +184,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(567, 289);
+            label4.Location = new Point(571, 364);
             label4.Name = "label4";
             label4.Size = new Size(41, 15);
             label4.TabIndex = 18;
@@ -184,7 +193,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(659, 289);
+            label5.Location = new Point(663, 364);
             label5.Name = "label5";
             label5.Size = new Size(43, 15);
             label5.TabIndex = 24;
@@ -192,7 +201,7 @@
             // 
             // MaxV
             // 
-            MaxV.Location = new Point(649, 307);
+            MaxV.Location = new Point(653, 382);
             MaxV.Maximum = 255;
             MaxV.Name = "MaxV";
             MaxV.Size = new Size(104, 45);
@@ -202,7 +211,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(659, 235);
+            label6.Location = new Point(663, 310);
             label6.Name = "label6";
             label6.Size = new Size(42, 15);
             label6.TabIndex = 22;
@@ -211,7 +220,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(659, 187);
+            label7.Location = new Point(663, 262);
             label7.Name = "label7";
             label7.Size = new Size(45, 15);
             label7.TabIndex = 21;
@@ -219,26 +228,26 @@
             // 
             // MaxS
             // 
-            MaxS.Location = new Point(649, 256);
+            MaxS.Location = new Point(653, 331);
             MaxS.Maximum = 255;
             MaxS.Name = "MaxS";
             MaxS.Size = new Size(104, 45);
             MaxS.TabIndex = 20;
-            MaxS.Value = 255;
+            MaxS.Value = 210;
             // 
             // MaxH
             // 
-            MaxH.Location = new Point(649, 205);
-            MaxH.Maximum = 255;
+            MaxH.Location = new Point(653, 280);
+            MaxH.Maximum = 360;
             MaxH.Name = "MaxH";
             MaxH.Size = new Size(104, 45);
             MaxH.TabIndex = 19;
-            MaxH.Value = 255;
+            MaxH.Value = 360;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(547, 67);
+            label8.Location = new Point(551, 142);
             label8.Name = "label8";
             label8.Size = new Size(57, 15);
             label8.TabIndex = 25;
@@ -248,7 +257,7 @@
             // 
             StepTwoCheck.AutoSize = true;
             StepTwoCheck.Enabled = false;
-            StepTwoCheck.Location = new Point(826, 67);
+            StepTwoCheck.Location = new Point(830, 142);
             StepTwoCheck.Name = "StepTwoCheck";
             StepTwoCheck.Size = new Size(15, 14);
             StepTwoCheck.TabIndex = 26;
@@ -258,7 +267,7 @@
             // 
             StepThreeCheck.AutoSize = true;
             StepThreeCheck.Enabled = false;
-            StepThreeCheck.Location = new Point(826, 149);
+            StepThreeCheck.Location = new Point(830, 224);
             StepThreeCheck.Name = "StepThreeCheck";
             StepThreeCheck.Size = new Size(15, 14);
             StepThreeCheck.TabIndex = 28;
@@ -267,7 +276,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(546, 149);
+            label9.Location = new Point(550, 224);
             label9.Name = "label9";
             label9.Size = new Size(65, 15);
             label9.TabIndex = 27;
@@ -276,7 +285,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(557, 87);
+            label10.Location = new Point(561, 162);
             label10.Name = "label10";
             label10.Size = new Size(108, 15);
             label10.TabIndex = 29;
@@ -286,7 +295,7 @@
             // 
             CornerOneCheck.AutoSize = true;
             CornerOneCheck.Enabled = false;
-            CornerOneCheck.Location = new Point(642, 108);
+            CornerOneCheck.Location = new Point(646, 183);
             CornerOneCheck.Name = "CornerOneCheck";
             CornerOneCheck.Size = new Size(15, 14);
             CornerOneCheck.TabIndex = 30;
@@ -295,7 +304,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(564, 107);
+            label11.Location = new Point(568, 182);
             label11.Name = "label11";
             label11.Size = new Size(61, 15);
             label11.TabIndex = 31;
@@ -304,7 +313,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(564, 122);
+            label12.Location = new Point(568, 197);
             label12.Name = "label12";
             label12.Size = new Size(69, 15);
             label12.TabIndex = 33;
@@ -314,7 +323,7 @@
             // 
             CornerTwoCheck.AutoSize = true;
             CornerTwoCheck.Enabled = false;
-            CornerTwoCheck.Location = new Point(642, 123);
+            CornerTwoCheck.Location = new Point(646, 198);
             CornerTwoCheck.Name = "CornerTwoCheck";
             CornerTwoCheck.Size = new Size(15, 14);
             CornerTwoCheck.TabIndex = 32;
@@ -323,7 +332,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(663, 107);
+            label13.Location = new Point(667, 182);
             label13.Name = "label13";
             label13.Size = new Size(82, 15);
             label13.TabIndex = 35;
@@ -333,7 +342,7 @@
             // 
             CornerThreeCheck.AutoSize = true;
             CornerThreeCheck.Enabled = false;
-            CornerThreeCheck.Location = new Point(759, 108);
+            CornerThreeCheck.Location = new Point(763, 183);
             CornerThreeCheck.Name = "CornerThreeCheck";
             CornerThreeCheck.Size = new Size(15, 14);
             CornerThreeCheck.TabIndex = 34;
@@ -342,7 +351,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(663, 122);
+            label14.Location = new Point(667, 197);
             label14.Name = "label14";
             label14.Size = new Size(90, 15);
             label14.TabIndex = 37;
@@ -352,7 +361,7 @@
             // 
             CornerFourCheck.AutoSize = true;
             CornerFourCheck.Enabled = false;
-            CornerFourCheck.Location = new Point(759, 123);
+            CornerFourCheck.Location = new Point(763, 198);
             CornerFourCheck.Name = "CornerFourCheck";
             CornerFourCheck.Size = new Size(15, 14);
             CornerFourCheck.TabIndex = 36;
@@ -361,28 +370,112 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(562, 169);
+            label15.Location = new Point(566, 244);
             label15.Name = "label15";
             label15.Size = new Size(255, 15);
             label15.TabIndex = 38;
             label15.Text = "Adjust until all obstacles are outlined in white...";
             // 
-            // ObjectCalibrationButton
+            // InRangeCalibrationButton
             // 
-            ObjectCalibrationButton.Location = new Point(617, 338);
-            ObjectCalibrationButton.Name = "ObjectCalibrationButton";
-            ObjectCalibrationButton.Size = new Size(75, 23);
-            ObjectCalibrationButton.TabIndex = 39;
-            ObjectCalibrationButton.Text = "Complete";
-            ObjectCalibrationButton.UseVisualStyleBackColor = true;
-            ObjectCalibrationButton.Click += ObjectCalibrationButton_Click;
+            InRangeCalibrationButton.Location = new Point(621, 413);
+            InRangeCalibrationButton.Name = "InRangeCalibrationButton";
+            InRangeCalibrationButton.Size = new Size(75, 32);
+            InRangeCalibrationButton.TabIndex = 39;
+            InRangeCalibrationButton.Text = "Complete";
+            InRangeCalibrationButton.UseVisualStyleBackColor = true;
+            InRangeCalibrationButton.Click += InRangeCalibrationButton_Click;
+            // 
+            // ErosionBar
+            // 
+            ErosionBar.Enabled = false;
+            ErosionBar.Location = new Point(607, 512);
+            ErosionBar.Name = "ErosionBar";
+            ErosionBar.Size = new Size(104, 45);
+            ErosionBar.TabIndex = 40;
+            ErosionBar.Scroll += ErosionBar_Scroll;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(551, 451);
+            label16.Name = "label16";
+            label16.Size = new Size(60, 15);
+            label16.TabIndex = 41;
+            label16.Text = "Step Four:";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(568, 473);
+            label17.Name = "label17";
+            label17.Size = new Size(104, 15);
+            label17.TabIndex = 42;
+            label17.Text = "Seperate Objects...";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(623, 494);
+            label18.Name = "label18";
+            label18.Size = new Size(65, 15);
+            label18.TabIndex = 43;
+            label18.Text = "Gap Space:";
+            // 
+            // StepFourCheck
+            // 
+            StepFourCheck.AutoSize = true;
+            StepFourCheck.Enabled = false;
+            StepFourCheck.Location = new Point(826, 377);
+            StepFourCheck.Name = "StepFourCheck";
+            StepFourCheck.Size = new Size(15, 14);
+            StepFourCheck.TabIndex = 44;
+            StepFourCheck.UseVisualStyleBackColor = true;
+            // 
+            // ErosionButton
+            // 
+            ErosionButton.Location = new Point(621, 546);
+            ErosionButton.Name = "ErosionButton";
+            ErosionButton.Size = new Size(75, 32);
+            ErosionButton.TabIndex = 45;
+            ErosionButton.Text = "Complete";
+            ErosionButton.UseVisualStyleBackColor = true;
+            ErosionButton.Click += ErosionButton_Click;
+            // 
+            // StartGameButton
+            // 
+            StartGameButton.Enabled = false;
+            StartGameButton.Location = new Point(603, 599);
+            StartGameButton.Name = "StartGameButton";
+            StartGameButton.Size = new Size(154, 86);
+            StartGameButton.TabIndex = 46;
+            StartGameButton.Text = "Calibration Complete";
+            StartGameButton.UseVisualStyleBackColor = true;
+            StartGameButton.Click += StartGameButton_Click;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(653, 31);
+            label19.Name = "label19";
+            label19.Size = new Size(68, 15);
+            label19.TabIndex = 47;
+            label19.Text = "Calibration:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1080, 721);
-            Controls.Add(ObjectCalibrationButton);
+            ClientSize = new Size(849, 721);
+            Controls.Add(label19);
+            Controls.Add(StartGameButton);
+            Controls.Add(ErosionButton);
+            Controls.Add(StepFourCheck);
+            Controls.Add(label18);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(ErosionBar);
+            Controls.Add(InRangeCalibrationButton);
             Controls.Add(label15);
             Controls.Add(label14);
             Controls.Add(CornerFourCheck);
@@ -417,7 +510,7 @@
             Controls.Add(VideoCapture);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
-            Text = "Painted Platformer";
+            Text = "Painted Platformer Calibration";
             ((System.ComponentModel.ISupportInitialize)VideoCapture).EndInit();
             ((System.ComponentModel.ISupportInitialize)WarpedCapture).EndInit();
             ((System.ComponentModel.ISupportInitialize)MinB).EndInit();
@@ -426,6 +519,7 @@
             ((System.ComponentModel.ISupportInitialize)MaxV).EndInit();
             ((System.ComponentModel.ISupportInitialize)MaxS).EndInit();
             ((System.ComponentModel.ISupportInitialize)MaxH).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ErosionBar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -464,6 +558,14 @@
         private Label label14;
         private CheckBox CornerFourCheck;
         private Label label15;
-        private Button ObjectCalibrationButton;
+        private Button InRangeCalibrationButton;
+        private TrackBar ErosionBar;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private CheckBox StepFourCheck;
+        private Button ErosionButton;
+        private Button StartGameButton;
+        private Label label19;
     }
 }
