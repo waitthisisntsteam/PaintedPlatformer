@@ -85,7 +85,7 @@ namespace PaintedPlatformer
                         output = new Mat(output, new Rectangle(0, 0, output.Width / 2, output.Height / 2));
                         GameImage = output.Clone();
 
-                        InputImage = output;
+                        InputImage = output.Clone();
                         CurrentStep++;
                         StepTwoCheck.Checked = true;
                     }
@@ -108,7 +108,7 @@ namespace PaintedPlatformer
                     {
                         Rectangle hitbox = CvInvoke.BoundingRectangle(contours[i]);
 
-                        if (contours[i].Size == 2) ThinPlatforms.Add(hitbox);
+                        if (contours[i].Size <= 2) ThinPlatforms.Add(hitbox);
                         else if (contours[i].Size == 4) Platforms.Add(hitbox);
                         else
                         {
@@ -135,34 +135,63 @@ namespace PaintedPlatformer
 
                 VideoCapture.DisplayedImage = input;
                 WarpedCapture.DisplayedImage = output;
+
+                //input.Dispose();
+                //output.Dispose();
             }
         }
 
         private void TakePhotoButton_Click(object sender, EventArgs e)
         {
-            InputImage = VideoCapture.DisplayedImage as Mat;
-            OutputImage = WarpedCapture.DisplayedImage as Mat;
+            InputImage = (VideoCapture.DisplayedImage as Mat).Clone();
+            OutputImage = (WarpedCapture.DisplayedImage as Mat).Clone();
 
+            TakePhotoButton.Enabled = false;
+
+            VideoCapture.Enabled = true;
             StepOneCheck.Checked = true;
             CurrentStep++;
         }
 
         private void RetryPhotoButton_Click(object sender, EventArgs e)
         {
-            InputImage.Dispose();
+            InputImage?.Dispose();
             InputImage = null;
 
-            OutputImage.Dispose();
+            OutputImage?.Dispose();
             OutputImage = null;
+
+            CurrentStep = 1;
+
+            CornerOne = new Point(0, 0);
+            CornerTwo = new Point(0, 0);
+            CornerThree = new Point(0, 0);
+            CornerFour = new Point(0, 0);
+
+            ThinPlatforms = new();
+            Platforms = new();
+            Spikes = new();
 
             StepOneCheck.Checked = false;
             StepTwoCheck.Checked = false;
+            StepThreeCheck.Checked = false;
+            StepFourCheck.Checked = false;
+
             CurrentStep = 1;
+
+            VideoCapture.Enabled = false;
 
             CornerOneCheck.Checked = false;
             CornerTwoCheck.Checked = false;
             CornerThreeCheck.Checked = false;
             CornerFourCheck.Checked = false;
+
+            ErosionBar.Enabled = false;
+
+            TakePhotoButton.Enabled = true;
+            InRangeCalibrationButton.Enabled = false;
+            ErosionButton.Enabled = false;
+            StartGameButton.Enabled = false;
         }
 
         private void VideoCapture_Click(object sender, EventArgs e)
@@ -196,12 +225,28 @@ namespace PaintedPlatformer
                 CornerFour = new Point(matX, matY);
                 CvInvoke.Circle(OutputImage, CornerFour, 5, new MCvScalar(0, 255, 0), 5);
                 CornerFourCheck.Checked = true;
+
+                MinB.Enabled = true;
+                MinG.Enabled = true;
+                MinR.Enabled = true;
+
+                MaxH.Enabled = true;
+                MaxS.Enabled = true;
+                MaxV.Enabled = true;
+
+                InRangeCalibrationButton.Enabled = true;
             }
         }
 
         private void InRangeCalibrationButton_Click(object sender, EventArgs e)
         {
+            InputImage = OutputImage.Clone();
+            OutputImage = InputImage.Clone();
+
             StepThreeCheck.Checked = true;
+            ErosionBar.Enabled = true;
+            ErosionButton.Enabled = true;
+
             CurrentStep++;
         }
 

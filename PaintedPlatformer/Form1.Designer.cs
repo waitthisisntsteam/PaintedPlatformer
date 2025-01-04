@@ -83,6 +83,7 @@
             // 
             // VideoCapture
             // 
+            VideoCapture.Enabled = false;
             VideoCapture.Location = new Point(0, 0);
             VideoCapture.Name = "VideoCapture";
             VideoCapture.Size = new Size(540, 360);
@@ -102,6 +103,7 @@
             // 
             // MinB
             // 
+            MinB.Enabled = false;
             MinB.Location = new Point(561, 280);
             MinB.Maximum = 255;
             MinB.Name = "MinB";
@@ -140,6 +142,7 @@
             // 
             // MinG
             // 
+            MinG.Enabled = false;
             MinG.Location = new Point(561, 331);
             MinG.Maximum = 255;
             MinG.Name = "MinG";
@@ -175,6 +178,7 @@
             // 
             // MinR
             // 
+            MinR.Enabled = false;
             MinR.Location = new Point(561, 382);
             MinR.Maximum = 255;
             MinR.Name = "MinR";
@@ -201,6 +205,7 @@
             // 
             // MaxV
             // 
+            MaxV.Enabled = false;
             MaxV.Location = new Point(653, 382);
             MaxV.Maximum = 255;
             MaxV.Name = "MaxV";
@@ -228,6 +233,7 @@
             // 
             // MaxS
             // 
+            MaxS.Enabled = false;
             MaxS.Location = new Point(653, 331);
             MaxS.Maximum = 255;
             MaxS.Name = "MaxS";
@@ -237,6 +243,7 @@
             // 
             // MaxH
             // 
+            MaxH.Enabled = false;
             MaxH.Location = new Point(653, 280);
             MaxH.Maximum = 360;
             MaxH.Name = "MaxH";
@@ -372,12 +379,13 @@
             label15.AutoSize = true;
             label15.Location = new Point(566, 244);
             label15.Name = "label15";
-            label15.Size = new Size(255, 15);
+            label15.Size = new Size(251, 15);
             label15.TabIndex = 38;
-            label15.Text = "Adjust until all obstacles are outlined in white...";
+            label15.Text = "Adjust until all hitboxes are outlined in white...";
             // 
             // InRangeCalibrationButton
             // 
+            InRangeCalibrationButton.Enabled = false;
             InRangeCalibrationButton.Location = new Point(621, 413);
             InRangeCalibrationButton.Name = "InRangeCalibrationButton";
             InRangeCalibrationButton.Size = new Size(75, 32);
@@ -416,17 +424,17 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(623, 494);
+            label18.Location = new Point(630, 494);
             label18.Name = "label18";
-            label18.Size = new Size(65, 15);
+            label18.Size = new Size(57, 15);
             label18.TabIndex = 43;
-            label18.Text = "Gap Space:";
+            label18.Text = "Thinning:";
             // 
             // StepFourCheck
             // 
             StepFourCheck.AutoSize = true;
             StepFourCheck.Enabled = false;
-            StepFourCheck.Location = new Point(826, 377);
+            StepFourCheck.Location = new Point(830, 452);
             StepFourCheck.Name = "StepFourCheck";
             StepFourCheck.Size = new Size(15, 14);
             StepFourCheck.TabIndex = 44;
@@ -434,6 +442,7 @@
             // 
             // ErosionButton
             // 
+            ErosionButton.Enabled = false;
             ErosionButton.Location = new Point(621, 546);
             ErosionButton.Name = "ErosionButton";
             ErosionButton.Size = new Size(75, 32);

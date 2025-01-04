@@ -48,8 +48,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(541, 360);
             Controls.Add(GameDisplay);
+            KeyPreview = true;
             Name = "Game";
             Text = "Painted Platformer";
+            KeyDown += Game_KeyDown;
+            KeyUp += Game_KeyUp;
             ((System.ComponentModel.ISupportInitialize)GameDisplay).EndInit();
             ResumeLayout(false);
         }
